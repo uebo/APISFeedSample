@@ -11,11 +11,12 @@
 #import <AFNetworking/AFHTTPSessionManager.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 
-@interface ViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
+@interface ViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+//JSON APIから取得するデータを格納
 @property (strong, nonatomic) NSArray *collections;
 
 @end
@@ -32,6 +33,7 @@
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refreshAction:) forControlEvents:UIControlEventValueChanged];
     [self.collectionView addSubview:self.refreshControl];
+    self.collectionView.alwaysBounceVertical = YES;
     
     [self refreshAction:nil];
 }
@@ -60,10 +62,10 @@
     cell.contentView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
     //画像
-    NSString *imageUrl = [NSString stringWithFormat:@"%@/%@/%@/%@/%@/_bin", @"https://api-datastore.appiaries.com/v1/bin", @"_sandbox", @"APISSample", @"imageFile", dict[@"imageObjectId"]];
+    NSString *imageUrl = [NSString stringWithFormat:@"%@/%@/%@/%@/%@/_bin", @"https://api-datastore.appiaries.com/v1/bin", @"_sandbox", @"APISFeedSample", @"imageFile", dict[@"imageObjectId"]];
     [cell.mainImageView sd_setImageWithURL:[NSURL URLWithString:imageUrl]];
     //テキスト
-    cell.commentLabel.text = dict[@"description"];
+    cell.commentLabel.text = dict[@"comment"];
     
     return cell;
 }
@@ -84,7 +86,7 @@
     NSDictionary *parameters = @{@"order": @"createdAt"};
     
     //URLを生成
-    NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@/%@/-;order=createdAt", @"https://api-datastore.appiaries.com/v1/dat", @"_sandbox", @"APISSample", @"post"];
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@/%@/-;order=createdAt", @"https://api-datastore.appiaries.com/v1/dat", @"_sandbox", @"APISFeedSample", @"post"];
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:urlString parameters:parameters
@@ -112,8 +114,6 @@
              [self.refreshControl endRefreshing];
          }
     ];
-    
-    
 }
 
 @end

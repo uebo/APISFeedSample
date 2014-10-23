@@ -10,6 +10,7 @@
 		4555F1B4C2524AF48AE46C88 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD16D726D3C4FC98A851EFC /* libPods.a */; };
 		984D086719F0FE1900983212 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 984D086619F0FE1900983212 /* PostViewController.m */; };
 		984D086D19F10F2700983212 /* UIImage+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 984D086C19F10F2700983212 /* UIImage+Extensions.m */; };
+		985EB79719F4A1EE00F954F3 /* appiaries.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 985EB79619F4A1EE00F954F3 /* appiaries.framework */; };
 		98D694E019EEA6DE005AD95C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D694DF19EEA6DE005AD95C /* main.m */; };
 		98D694E319EEA6DE005AD95C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D694E219EEA6DE005AD95C /* AppDelegate.m */; };
 		98D694E619EEA6DE005AD95C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D694E519EEA6DE005AD95C /* ViewController.m */; };
@@ -36,6 +37,7 @@
 		984D086619F0FE1900983212 /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
 		984D086B19F10F2700983212 /* UIImage+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extensions.h"; sourceTree = "<group>"; };
 		984D086C19F10F2700983212 /* UIImage+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extensions.m"; sourceTree = "<group>"; };
+		985EB79619F4A1EE00F954F3 /* appiaries.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = appiaries.framework; sourceTree = "<group>"; };
 		98D694DA19EEA6DE005AD95C /* APISFeedSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APISFeedSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98D694DE19EEA6DE005AD95C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98D694DF19EEA6DE005AD95C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4555F1B4C2524AF48AE46C88 /* libPods.a in Frameworks */,
+				985EB79719F4A1EE00F954F3 /* appiaries.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +99,7 @@
 		98D694DC19EEA6DE005AD95C /* APISFeedSample */ = {
 			isa = PBXGroup;
 			children = (
+				985EB79619F4A1EE00F954F3 /* appiaries.framework */,
 				98D694E119EEA6DE005AD95C /* AppDelegate.h */,
 				98D694E219EEA6DE005AD95C /* AppDelegate.m */,
 				98D694E419EEA6DE005AD95C /* ViewController.h */,
@@ -347,7 +351,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -368,7 +372,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "E0F73841-D07C-4D55-A30E-F70E2DA3501F";
+				PROVISIONING_PROFILE = "2594c0bb-1f7b-495e-88ee-c7f2416810dd";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -390,7 +394,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -404,7 +408,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "E0F73841-D07C-4D55-A30E-F70E2DA3501F";
+				PROVISIONING_PROFILE = "2594c0bb-1f7b-495e-88ee-c7f2416810dd";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -416,6 +420,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/APISFeedSample",
+				);
 				INFOPLIST_FILE = APISFeedSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -428,6 +436,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/APISFeedSample",
+				);
 				INFOPLIST_FILE = APISFeedSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

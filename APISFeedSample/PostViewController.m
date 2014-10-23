@@ -14,8 +14,9 @@
 @interface PostViewController ()<UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *photoButton;
-@property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
+@property (weak, nonatomic) IBOutlet UITextView *commentTextView;
 
+//選択した写真を一時的に保存する場所
 @property (strong, nonatomic) UIImage *selectedImage;
 
 - (IBAction)cancelButtonAction:(id)sender;
@@ -58,7 +59,7 @@
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
 
     //画像を登録するURLを生成
-    NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@/%@?proc=create&get=true&access_token=%@", @"https://api-datastore.appiaries.com/v1/bin", @"_sandbox", @"APISSample", @"imageFile", @"appec34b9da3ebee63d9689f986ab"];
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@/%@?proc=create&get=true&access_token=%@", @"https://api-datastore.appiaries.com/v1/bin", @"_sandbox", @"APISFeedSample", @"imageFile", @"app60433c173d722dc86abc41c6da"];
     
     //登録する画像
     NSData *imageData = UIImageJPEGRepresentation(self.selectedImage, 0.5);
@@ -68,7 +69,6 @@
     NSDictionary *parameters = @{@"_type": mimeType,
                                  @"_filename": fileName,
                                  };
-    NSLog(@"%@", parameters);
     //File APIの呼び出し
     __weak typeof(self) weakSelf = self;
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -98,14 +98,14 @@
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
     
     //データを登録するURLを生成
-    NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@/%@?proc=create&get=true&access_token=%@", @"https://api-datastore.appiaries.com/v1/dat", @"_sandbox", @"APISSample", @"post", @"appec34b9da3ebee63d9689f986ab"];
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@/%@?proc=create&get=true&access_token=%@", @"https://api-datastore.appiaries.com/v1/dat", @"_sandbox", @"APISFeedSample", @"post", @"app60433c173d722dc86abc41c6da"];
     
     //日時
     NSNumber *dateNumber = [NSNumber numberWithUnsignedLong:(unsigned long)[[NSDate date] timeIntervalSince1970]];
     
     //パラメータ
     NSDictionary *parameters = @{@"imageObjectId": objectId ?:@"",
-                                 @"description": self.descriptionTextView.text ?:@"",
+                                 @"comment": self.commentTextView.text ?:@"",
                                  @"createdAt": dateNumber
                                  };
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
